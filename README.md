@@ -48,7 +48,45 @@ git push -u origin main
 
 ## 📝 문제 풀이 방법
 
-실제 문제는 문제링크를 통해 접속한 사이트(백준, Leet Code)에서 풉니다.
+### Basic (로컬 테스트)
+
+각 주차의 `basic` 폴더에는 `check.py` 자동 채점 스크립트가 있습니다.
+
+#### 모든 문제 한 번에 테스트
+
+```bash
+# Week 2 기본 문제 전체 테스트
+cd week2/basic
+python3 check.py --all
+
+# Week 3 기본 문제 전체 테스트
+cd week3/basic
+python3 check.py --all
+
+# Week 4 기본 문제 전체 테스트
+cd week4/basic
+python3 check.py --all
+
+# Week 5 기본 문제 전체 테스트
+cd week5/basic
+python3 check.py --all
+```
+
+#### 특정 문제만 테스트
+
+```bash
+# 예시: Week 2의 01_python_dict.py만 테스트
+cd week2/basic
+python3 check.py 01_python_dict.py
+
+# 예시: Week 3의 03_quick_sort.py만 테스트
+cd week3/basic
+python3 check.py 03_quick_sort.py
+```
+
+### problem-solving
+
+실제 문제는 문제링크를 통해 접속한 사이트(백준, LeetCode)에서 풉니다.
 각 문제 파일을 열어 풀이 코드를 기록합니다.
 
 ```
@@ -62,4 +100,3 @@ week2/problem-solving/난이도하_파이썬문법_최댓값_브론즈3.py
 
 # 여기에 코드 작성
 ```
-
