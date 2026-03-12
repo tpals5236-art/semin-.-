@@ -36,8 +36,11 @@ def gcd(a, b):
     """
     # TODO: 유클리드 호제법 구현
     # base case: b가 0이면 a 반환
+    if b==0:
+        return a
     # recursive를 이용 
-    pass
+    return gcd(b,a%b)
+
 
 def gcd_iterative(a, b):
     """
@@ -51,7 +54,10 @@ def gcd_iterative(a, b):
     """
     # TODO: 반복문으로 구현
     # b가 0이 될 때까지 반복
-    pass
+    while b!=0:
+        a,b=b,a%b
+    return a
+  
 
 def lcm(a, b):
     """
@@ -64,7 +70,7 @@ def lcm(a, b):
         최소공배수
     """
     # TODO: LCM 계산
-    pass
+    return a*b//gcd(a,b)
 
 def extended_gcd(a, b):
     """
@@ -79,9 +85,17 @@ def extended_gcd(a, b):
     """
     # TODO: 확장 유클리드 호제법 구현
     # base case: b가 0이면 (a, 1, 0) 반환    
+    if b==0:
+        return (a,1,0)
     # recursive case
-    # 역추적하며 x, y 계산
-    pass
+    g,y1,x1=extended_gcd(a, a%b)
+      # 역추적하며 x, y 계산
+    x=y1
+    y=x1-(a//b)*y1
+    return (g,x,y)
+
+  
+ 
 
 def is_prime(n):
     """
@@ -95,9 +109,22 @@ def is_prime(n):
     """
     # TODO: 소수 판별 구현
     # n이 2보다 작으면 False
+    if n<2:
+        return False
+    if n==2:
+        return True
     # 2부터 sqrt(n)까지 나누어 떨어지는지 확인    
+    if n%2==0:
+        return False
     # 3부터 sqrt(n)까지 홀수만 확인
-    pass 
+    i=3
+    while i*i<=n:
+        if n%i==0:
+            return False
+        i+=2
+    return True
+
+ 
 
 # 테스트 케이스
 if __name__ == "__main__":
@@ -143,5 +170,6 @@ if __name__ == "__main__":
     for num in test_numbers:
         result = "소수" if is_prime(num) else "합성수"
         print(f"{num}: {result}")
+
 
 
