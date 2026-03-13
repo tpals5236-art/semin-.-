@@ -44,12 +44,12 @@ def partition(arr, low, high):
     ## 현재 원소가 피벗보다 작거나 같으면:
     ##   1. i를 1 증가
     ##   2. arr[i]와 arr[j]를 교환
-    pass
+  
     
     # TODO: 피벗을 올바른 위치(i+1)에 배치
-    pass
+   
     
-    return i + 1
+    
 
 def quick_sort_helper(arr, low, high):
     """

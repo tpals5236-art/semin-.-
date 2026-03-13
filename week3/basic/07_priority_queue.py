@@ -38,17 +38,22 @@ def process_emergency_room(patients):
     """
     # TODO: 빈 힙 생성
     heap = []
-    
+    #이번 문제에 핵심은 이름,우선순위로 튜플이 들어가 있어 그걸 다시 우선순위, 이름으로 받는 작업이 필요했다.
     
     # TODO: 모든 환자를 힙에 추가
-    pass
-        
+    for i in range(len(patients)):
+        name,first=patients[i]
+        heapq.heappush(heap,(first,name))
+
     processed = []
     
     # TODO: 힙이 비어있지 않은 동안 반복
+    while not len(heap)==0:
     ## 힙에서 우선순위가 가장 높은 환자 꺼내기
+        first, name=heapq.heappop(heap)
     ## 환자 처리
-    pass
+        print(f'처리:{name} (우선순위:{first})')
+        processed.append((name,first))
         
     return processed
 
