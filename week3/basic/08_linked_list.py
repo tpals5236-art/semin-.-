@@ -37,6 +37,7 @@ class LinkedList:
         """리스트 끝에 노드 추가"""
         new_node = Node(data)
         current=self.head
+        
         # TODO: 리스트가 비어있으면 head를 new_node로 설정
         if self.head==None:
             self.head=new_node
