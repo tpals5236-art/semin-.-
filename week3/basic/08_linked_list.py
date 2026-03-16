@@ -39,14 +39,14 @@ class LinkedList:
         current=self.head
         
         # TODO: 리스트가 비어있으면 head를 new_node로 설정
-        if self.head==None:
+        if self.head is None:
             self.head=new_node
         else:
              current = self.head
           
         # TODO: 마지막 노드 찾기
              while current.next is not None:
-                  current=current.next
+                current=current.next
         # TODO: 마지막 노드의 next를 new_node로 설정
              current.next=new_node
     

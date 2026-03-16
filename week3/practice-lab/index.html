@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3 Practice Lab</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">SW-AI Week 3</p>
+      <h1>Basic Concept Practice Lab</h1>
+      <p class="hero-copy">
+        이분 탐색, 분할 정복, 정렬, 스택, 큐, 우선순위 큐, 연결 리스트, 해시 테이블을
+        개념부터 난이도별 연습 문제까지 한 화면에서 정리한 개인 학습 사이트입니다.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#topics">개념 보기</a>
+        <a class="button secondary" href="#problem-board">문제 풀기</a>
+      </div>
+      <div class="hero-stats">
+        <article>
+          <strong id="topic-count">0</strong>
+          <span>학습 주제</span>
+        </article>
+        <article>
+          <strong id="problem-count">0</strong>
+          <span>연습 문제</span>
+        </article>
+        <article>
+          <strong id="completed-count">0</strong>
+          <span>완료 체크</span>
+        </article>
+      </div>
+    </header>
+
+    <main>
+      <section id="topics" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Concept Deck</p>
+            <h2>핵심 개념 정리</h2>
+          </div>
+          <p class="section-copy">
+            각 주제를 눌러서 핵심 정의, 자주 하는 실수, 추천 접근 방식을 빠르게 복습할 수 있습니다.
+          </p>
+        </div>
+        <div id="topic-grid" class="topic-grid"></div>
+      </section>
+
+      <section class="panel focus-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Study Flow</p>
+            <h2>오늘의 추천 학습 루틴</h2>
+          </div>
+        </div>
+        <div class="study-flow">
+          <article>
+            <span>1</span>
+            <h3>개념 다시 읽기</h3>
+            <p>정의, 시간 복잡도, 자료 구조 특성을 짧게 정리합니다.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>난이도 하부터 시작</h3>
+            <p>핵심 로직을 직접 구현하면서 손에 익히는 데 집중합니다.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>중간 난이도 확장</h3>
+            <p>변형 조건과 경계 케이스를 만나면서 사고 범위를 넓힙니다.</p>
+          </article>
+          <article>
+            <span>4</span>
+            <h3>어려운 문제 마무리</h3>
+            <p>자료 구조 선택 이유와 최적화 포인트를 설명해 보며 마무리합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="problem-board" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Problem Board</p>
+            <h2>난이도별 추가 문제</h2>
+          </div>
+          <p class="section-copy">
+            필터를 바꾸면 원하는 개념과 난이도만 골라서 볼 수 있습니다. 완료 체크는 브라우저에 저장됩니다.
+          </p>
+        </div>
+
+        <div class="toolbar">
+          <label>
+            <span>개념</span>
+            <select id="topic-filter">
+              <option value="all">전체</option>
+            </select>
+          </label>
+          <label>
+            <span>난이도</span>
+            <select id="level-filter">
+              <option value="all">전체</option>
+              <option value="하">난이도 하</option>
+              <option value="중">난이도 중</option>
+              <option value="상">난이도 상</option>
+            </select>
+          </label>
+          <label class="checkbox">
+            <input id="completed-only" type="checkbox">
+            <span>완료한 문제만 보기</span>
+          </label>
+        </div>
+
+        <div id="problem-list" class="problem-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="topic-card-template">
+    <article class="topic-card">
+      <div class="topic-card-top">
+        <p class="topic-badge"></p>
+        <h3></h3>
+      </div>
+      <p class="topic-summary"></p>
+      <dl class="topic-meta">
+        <div>
+          <dt>핵심 포인트</dt>
+          <dd class="topic-core"></dd>
+        </div>
+        <div>
+          <dt>자주 하는 실수</dt>
+          <dd class="topic-pitfall"></dd>
+        </div>
+        <div>
+          <dt>추천 질문</dt>
+          <dd class="topic-question"></dd>
+        </div>
+      </dl>
+    </article>
+  </template>
+
+  <template id="problem-card-template">
+    <article class="problem-card">
+      <div class="problem-head">
+        <div>
+          <p class="problem-topic"></p>
+          <h3></h3>
+        </div>
+        <span class="difficulty-pill"></span>
+      </div>
+      <p class="problem-description"></p>
+      <div class="problem-sections">
+        <div>
+          <h4>요구사항</h4>
+          <p class="problem-goal"></p>
+        </div>
+        <div>
+          <h4>힌트</h4>
+          <p class="problem-hint"></p>
+        </div>
+        <div>
+          <h4>체크 포인트</h4>
+          <ul class="problem-checkpoints"></ul>
+        </div>
+      </div>
+      <div class="answer-lab">
+        <div class="answer-lab-head">
+          <div>
+            <h4>내 답안 작성</h4>
+            <p class="answer-guide"></p>
+          </div>
+          <div class="answer-actions">
+            <button type="button" class="hint-button">힌트 보기</button>
+            <button type="button" class="check-answer-button">답안 확인</button>
+          </div>
+        </div>
+        <textarea class="answer-input" rows="8" placeholder="여기에 풀이 아이디어나 코드 설명을 적어보세요."></textarea>
+        <div class="hint-panel">
+          <p class="hint-status">아직 힌트를 열지 않았습니다.</p>
+          <ul class="hint-list"></ul>
+        </div>
+        <div class="feedback-panel">
+          <p class="feedback-score"></p>
+          <p class="feedback-summary"></p>
+          <ul class="feedback-list"></ul>
+        </div>
+      </div>
+      <label class="completion-toggle">
+        <input type="checkbox">
+        <span>이 문제 풀었어요</span>
+      </label>
+    </article>
+  </template>
+
+  <script src="./script.js"></script>
+</body>
+</html>
