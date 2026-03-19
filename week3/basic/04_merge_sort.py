@@ -51,20 +51,18 @@ def merge(arr, left, mid, right):
             arr[k]=right_arr[j]
             j+=1
         k+=1
-
+  # TODO: 남은 원소들을 복사
+    # left_arr에 남은 원소가 있으면 복사
     while i < len(left_arr):
         arr[k] = left_arr[i]
         i += 1
         k += 1
-
+    # right_arr에 남은 원소가 있으면 복사
     while j < len(right_arr):
         arr[k] = right_arr[j]
         j += 1
         k += 1   
-    # TODO: 남은 원소들을 복사
-    # left_arr에 남은 원소가 있으면 복사
-    # right_arr에 남은 원소가 있으면 복사
-
+   
 
 def merge_sort_helper(arr, left, right):
     """
@@ -77,15 +75,18 @@ def merge_sort_helper(arr, left, right):
     """
     # TODO: base case - left가 right보다 작을 때만 정렬
     if left<right:
+          ## 중간 지점 계산
         mid=(left+right)//2
+         ## 왼쪽 절반 재귀 정렬
         merge_sort_helper(arr,left,mid)
+         ## 오른쪽 절반 재귀 정렬
         merge_sort_helper(arr,mid+1,right) 
+         ## 정렬된 두 절반을 병합
         merge(arr,left,mid,right)
 
-    ## 중간 지점 계산
-    ## 왼쪽 절반 재귀 정렬
-    ## 오른쪽 절반 재귀 정렬
-    ## 정렬된 두 절반을 병합
+  
+
+
  
 
 def merge_sort(arr):

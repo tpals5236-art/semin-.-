@@ -42,17 +42,20 @@ def partition(arr, low, high):
     
     # TODO: low부터 high-1까지 순회하면서
     for j in range(low,high):
+        ## 현재 원소가 피벗보다 작거나 같으면:
         if arr[j]<=pivot:
+            ##   1. i를 1 증가
             i+=1
+            ##   2. arr[i]와 arr[j]를 교환
             arr[i],arr[j]=arr[j],arr[i]
-    ## 현재 원소가 피벗보다 작거나 같으면:
-    ##   1. i를 1 증가
-    ##   2. arr[i]와 arr[j]를 교환
-
 
   
+
+
+
+     # TODO: 피벗을 올바른 위치(i+1)에 배치
     arr[i+1],arr[high]=arr[high],arr[i+1]
-    # TODO: 피벗을 올바른 위치(i+1)에 배치
+   
     return i+1
    
     
@@ -70,12 +73,12 @@ def quick_sort_helper(arr, low, high):
     # TODO: base case - low가 high보다 작을 때만 정렬
     if low<high:
         pivot_index=partition(arr,low,high)
+         ## 분할하여 피벗 인덱스 얻기
         quick_sort_helper(arr,low,pivot_index-1)
+         ## 피벗 왼쪽 부분 재귀 정렬
         quick_sort_helper(arr, pivot_index+1, high)
+        ## 피벗 오른쪽 부분 재귀 정렬
 
-    ## 분할하여 피벗 인덱스 얻기
-    ## 피벗 왼쪽 부분 재귀 정렬
-    ## 피벗 오른쪽 부분 재귀 정렬
 
 def quick_sort(arr):
     """

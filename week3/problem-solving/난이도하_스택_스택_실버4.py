@@ -27,5 +27,6 @@ for _ in range(N):
             print(0)
         else:
             print(1)
+            
        
     

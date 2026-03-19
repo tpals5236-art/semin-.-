@@ -39,18 +39,18 @@ def is_valid_parentheses(s):
     
     # TODO: 문자열의 각 문자를 순회
     for ch in s:
+        ## : 여는 괄호 '('면 스택에 추가
         if ch=='(':
+            ## : 닫는 괄호 ')'면
             stack.append(s)
         elif ch==')':
+               ## 스택이 비어있으면 False 반환
             if not stack:
                 return False
+            ## 아니면 스택에서 pop
             else:
                 stack.pop()
         
-    ## : 여는 괄호 '('면 스택에 추가
-    ## : 닫는 괄호 ')'면
-    ## 스택이 비어있으면 False 반환
-    ## 아니면 스택에서 pop
     
     # TODO: 반복이 끝나면 스택이 비어있는지 확인
     return len(stack)==0

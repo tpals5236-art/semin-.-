@@ -7,7 +7,6 @@ cards=deque(range(1,N+1))
 
 while len(cards)>1:
     cards.popleft()
-    x=cards.popleft()
-    cards.append(x)
+    cards.append(cards.popleft())
 
 print(cards[0])
