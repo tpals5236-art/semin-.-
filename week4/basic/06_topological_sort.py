@@ -28,7 +28,7 @@
 
 from collections import deque
 
-def topological_sort(vertices, edges):
+def topological_sort(vertices, edges):  
     """
     위상 정렬 (Kahn's Algorithm)
     
@@ -40,12 +40,13 @@ def topological_sort(vertices, edges):
         위상 정렬 순서
     """
     # TODO: 그래프와 진입 차수 초기화
-   
+   graph=[0 for _ in range(vertices)]
     
     # TODO: 그래프 구성 및 진입 차수 계산
    
     
     # TODO: 진입 차수가 0인 정점들을 큐에 추가
+    
    
     
     result = []
