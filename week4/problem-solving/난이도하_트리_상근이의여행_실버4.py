@@ -9,6 +9,6 @@ for _ in range(T):
     for _ in range(M):
         a,b=map(int,input().split())
 
-        print(N-1)
+    print(N-1)
 
 

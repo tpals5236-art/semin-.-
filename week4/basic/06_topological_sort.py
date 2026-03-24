@@ -40,7 +40,7 @@ def topological_sort(vertices, edges):
         위상 정렬 순서
     """
     # TODO: 그래프와 진입 차수 초기화
-   graph=[0 for _ in range(vertices)]
+ 
     
     # TODO: 그래프 구성 및 진입 차수 계산
    
