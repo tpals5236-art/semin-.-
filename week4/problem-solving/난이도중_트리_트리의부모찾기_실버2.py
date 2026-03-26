@@ -20,5 +20,3 @@ while stack:
     for neighbor in graph[current]:
        if not visited[neighbor]:
            
-    
-
